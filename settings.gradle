@@ -1,0 +1,12 @@
+// gazon/settings.gradle
+
+pluginManagement {
+    repositories {
+        gradlePluginPortal() // <-- Эта строка говорит Gradle, где искать ВСЕ плагины
+    }
+}
+
+rootProject.name = 'gazon'
+include 'user-service'
+include 'product-service'
+include 'cart-service'
