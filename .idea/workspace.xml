@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ccbf1ff2-d3c3-48bc-95f4-415d4936721e" name="Changes" comment="re-added readme" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="gazon" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Prodocc"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Prodocc/gazon.git",
+    "accountId": "9784658c-03cc-414f-bf2c-f9c7a4342285"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "Prodocc",
+    "repository": "gazon"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="30plL4aVACwVT9m6Cl3KI2yd02C" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Gradle.gazon:user-service [:user-service:com.eshop.Main.main()].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "git-widget-placeholder": "replace__readme",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "C:/Users/tobi7/IdeaProjects/gazon/cart-service/src/main/java/com/eshop/Main.java"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tobi7\IdeaProjects\gazon" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.eshop.Main" />
+      <module name="gazon.user-service.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.eshop.models.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ccbf1ff2-d3c3-48bc-95f4-415d4936721e" name="Changes" comment="" />
+      <created>1754332336317</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1754332336317</updated>
+    </task>
+    <task id="LOCAL-00001" summary="added readme">
+      <option name="closed" value="true" />
+      <created>1754333570353</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754333570353</updated>
+    </task>
+    <task id="LOCAL-00002" summary="re-added reamde">
+      <option name="closed" value="true" />
+      <created>1754333658287</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1754333658287</updated>
+    </task>
+    <task id="LOCAL-00003" summary="re-added readme">
+      <option name="closed" value="true" />
+      <created>1754334263099</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1754334263099</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added readme" />
+    <MESSAGE value="re-added reamde" />
+    <MESSAGE value="re-added readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="re-added readme" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/product-service/src/main/java/com/eshop/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/cart-service/src/main/java/com/eshop/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
