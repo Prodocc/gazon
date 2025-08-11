@@ -10,21 +10,25 @@ import java.math.BigDecimal;
 @Table(name = "products")
 @Getter
 @Setter
-public class Product {
+public class Product extends BaseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // автогенерация id
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "price")
     private BigDecimal price;
 
     @Column(name = "is_active")
     private boolean isActive = true;
 
+    @Column(name = "quantity")
     private int quantity;
 
 }
