@@ -31,4 +31,6 @@ public class Product extends BaseModel {
     @Column(name = "quantity")
     private int quantity;
 
+    @Column(name = "category_id")
+    private int category;
 }
