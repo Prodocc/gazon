@@ -16,11 +16,9 @@ import java.util.function.Function;
 @RequestMapping("/api/v1/products")
 public class ProductController {
     private final ProductService productService;
-    private final ProductMapper productMapper;
 
-    public ProductController(ProductService service, ProductMapper productMapper) {
+    public ProductController(ProductService service) {
         this.productService = service;
-        this.productMapper = productMapper;
     }
 
     @PostMapping
@@ -34,9 +32,9 @@ public class ProductController {
             @RequestParam int page,
             @RequestParam int size) {
 
-        Page<Product> productPage = productService.findProductsPaginated(page, size);
+        Page<ProductDto> productsPaginated = productService.findProductsPaginated(page, size);
 
-        return ResponseEntity.ok(productPage.map(productMapper::toDto));
+        return ResponseEntity.ok(productsPaginated);
 
     }
 

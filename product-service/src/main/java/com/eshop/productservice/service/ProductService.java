@@ -1,6 +1,7 @@
 package com.eshop.productservice.service;
 
 import com.eshop.productservice.dto.ProductDto;
+import com.eshop.productservice.mappers.ProductMapper;
 import com.eshop.productservice.model.Product;
 import com.eshop.productservice.repository.ProductRepository;
 import org.springframework.data.domain.Page;
@@ -11,9 +12,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductService {
     private final ProductRepository repo;
+    private final ProductMapper productMapper;
 
-    public ProductService(ProductRepository repo) {
+    public ProductService(ProductRepository repo, ProductMapper productMapper) {
         this.repo = repo;
+        this.productMapper = productMapper;
     }
 
     public Product createProduct(ProductDto request) {
@@ -26,15 +29,15 @@ public class ProductService {
         return repo.save(product);
     }
 
-    public Page<Product> findProductsPaginated(int page, int size) {
+    public Page<ProductDto> findProductsPaginated(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
 
-        return repo.findAll(pageable);
+        return repo.findAll(pageable).map(productMapper::toDto);
     }
 
-    public Page<Product> findProductsByCategory(long category_id, int page, int size) {
+    public Page<ProductDto> findProductsByCategory(long category_id, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
 
-        return repo.findAllByCategory(category_id, pageable);
+        return repo.findAllByCategory(category_id, pageable).map(productMapper::toDto);
     }
 }
