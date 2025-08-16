@@ -31,4 +31,10 @@ public class ProductService {
 
         return repo.findAll(pageable);
     }
+
+    public Page<Product> findProductsByCategory(long category_id, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+
+        return repo.findAllByCategory(category_id, pageable);
+    }
 }
