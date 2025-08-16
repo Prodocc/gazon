@@ -25,7 +25,7 @@ public class Product extends BaseModel {
     @Column(name = "price")
     private BigDecimal price;
 
-    @Column(name = "is_active")
+    @Column(name = "is_active", nullable = false)
     private boolean isActive = true;
 
     @Column(name = "quantity")
