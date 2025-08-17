@@ -4,10 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @AllArgsConstructor
-public class CategoryDto {
-
+public class ProductCheckDto {
     private final long id;
-    private final String name;
+    private final BigDecimal price;
+    private final boolean isActive;
 }
