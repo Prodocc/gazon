@@ -1,19 +1,17 @@
 plugins {
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
     id 'java'
 }
 
-group = 'com.eshop'
-version = '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
+sourceCompatibility = '17'
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.postgresql:postgresql'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
