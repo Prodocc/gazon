@@ -10,7 +10,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -44,7 +46,20 @@ public class ProductService {
         return productRepository.findAllByCategory(category_id, pageable).map(productMapper::toDto);
     }
 
-    public List<ProductCheckDto> checkProducts(List<Long> productsIds){
+    public List<ProductCheckDto> checkProducts(List<Long> productsIds) {
+        if (productsIds == null){
+            throw new IllegalArgumentException("Product ID list cannot be null");
+        }
+
+        if (productsIds.isEmpty()){
+            return Collections.emptyList();
+        }
         return productRepository.findAllById(productsIds).stream().map(productMapper::toCheckDto).toList();
+    }
+
+    public Optional<ProductDto> findProductById(long id) {
+        Optional<Product> byId = productRepository.findById(id);
+
+        return byId.map(productMapper::toDto);
     }
 }
