@@ -1,0 +1,16 @@
+package com.eshop.productservice.config;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.utility.DockerImageName;
+
+@TestConfiguration
+public class TestConfig {
+
+    @Bean
+    PostgreSQLContainer postgreSQLContainer(){
+        return new PostgreSQLContainer();
+    }
+}

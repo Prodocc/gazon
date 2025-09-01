@@ -1,7 +1,8 @@
 package com.eshop.productservice.service;
 
 import com.eshop.productservice.dto.ProductCheckDto;
-import com.eshop.productservice.dto.ProductDto;
+import com.eshop.productservice.dto.ProductRequestDto;
+import com.eshop.productservice.dto.ProductResponseDto;
 import com.eshop.productservice.mappers.ProductMapper;
 import com.eshop.productservice.model.Product;
 import com.eshop.productservice.repository.ProductRepository;
@@ -24,42 +25,43 @@ public class ProductService {
         this.productMapper = productMapper;
     }
 
-    public Product createProduct(ProductDto request) {
+    public ProductResponseDto createProduct(ProductRequestDto request) {
         Product product = new Product();
-        product.setName(request.getName());
-        product.setDescription(request.getDescription());
-        product.setPrice(request.getPrice());
-        product.setQuantity(request.getQuantity());
+        product.setName(request.name());
+        product.setDescription(request.description());
+        product.setPrice(request.price());
+        product.setQuantity(request.quantity());
         product.setActive(true);
-        return productRepository.save(product);
+        productRepository.save(product);
+        return productMapper.toResponseDto(product);
     }
 
-    public Page<ProductDto> findProductsPaginated(int page, int size) {
+    public Page<ProductResponseDto> findProductsPaginated(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
 
-        return productRepository.findAll(pageable).map(productMapper::toDto);
+        return productRepository.findAll(pageable).map(productMapper::toResponseDto);
     }
 
-    public Page<ProductDto> findProductsByCategory(long category_id, int page, int size) {
+    public Page<ProductResponseDto> findProductsByCategory(long category_id, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
 
-        return productRepository.findAllByCategory(category_id, pageable).map(productMapper::toDto);
+        return productRepository.findAllByCategory(category_id, pageable).map(productMapper::toResponseDto);
     }
 
     public List<ProductCheckDto> checkProducts(List<Long> productsIds) {
-        if (productsIds == null){
+        if (productsIds == null) {
             throw new IllegalArgumentException("Product ID list cannot be null");
         }
 
-        if (productsIds.isEmpty()){
+        if (productsIds.isEmpty()) {
             return Collections.emptyList();
         }
         return productRepository.findAllById(productsIds).stream().map(productMapper::toCheckDto).toList();
     }
 
-    public Optional<ProductDto> findProductById(long id) {
+    public Optional<ProductResponseDto> findProductById(long id) {
         Optional<Product> byId = productRepository.findById(id);
 
-        return byId.map(productMapper::toDto);
+        return byId.map(productMapper::toResponseDto);
     }
 }

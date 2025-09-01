@@ -1,7 +1,8 @@
 package com.eshop.productservice.service;
 
 import com.eshop.productservice.dto.ProductCheckDto;
-import com.eshop.productservice.dto.ProductDto;
+import com.eshop.productservice.dto.ProductRequestDto;
+import com.eshop.productservice.dto.ProductResponseDto;
 import com.eshop.productservice.mappers.ProductMapper;
 import com.eshop.productservice.model.Product;
 import com.eshop.productservice.repository.ProductRepository;
@@ -108,17 +109,17 @@ class ProductServiceTest {
         p2.setPrice(BigDecimal.valueOf(200));
         p2.setQuantity(20);
 
-        ProductDto dto1 = new ProductDto(p1.getName(), p1.getDescription(), p1.getPrice(), p1.getQuantity());
-        ProductDto dto2 = new ProductDto(p2.getName(), p2.getDescription(), p2.getPrice(), p2.getQuantity());
+        ProductResponseDto dto1 = new ProductResponseDto(p1.getId(), p1.getName(), p1.getDescription(), p1.getPrice(), p1.getQuantity());
+        ProductResponseDto dto2 = new ProductResponseDto(p2.getId(), p2.getName(), p2.getDescription(), p2.getPrice(), p2.getQuantity());
 
         Page<Product> productPage = new PageImpl<>(List.of(p1, p2));
 
         when(productRepository.findAll(any(Pageable.class))).thenReturn(productPage);
 
-        when(productMapper.toDto(p1)).thenReturn(dto1);
-        when(productMapper.toDto(p2)).thenReturn(dto2);
+        when(productMapper.toResponseDto(p1)).thenReturn(dto1);
+        when(productMapper.toResponseDto(p2)).thenReturn(dto2);
 
-        Page<ProductDto> resultPage = productService.findProductsPaginated(page, size);
+        Page<ProductResponseDto> resultPage = productService.findProductsPaginated(page, size);
 
         assertThat(resultPage).isNotNull();
         assertThat(resultPage.getTotalElements()).isEqualTo(2);
@@ -145,12 +146,12 @@ class ProductServiceTest {
         p1.setPrice(BigDecimal.valueOf(100));
         p1.setQuantity(10);
 
-        ProductDto dto1 = new ProductDto(p1.getName(), p1.getDescription(), p1.getPrice(), p1.getQuantity());
+        ProductResponseDto dto1 = new ProductResponseDto(p1.getId(), p1.getName(), p1.getDescription(), p1.getPrice(), p1.getQuantity());
 
         when(productRepository.findById(id)).thenReturn(Optional.of(p1));
-        when(productMapper.toDto(p1)).thenReturn(dto1);
+        when(productMapper.toResponseDto(p1)).thenReturn(dto1);
 
-        Optional<ProductDto> result = productService.findProductById(id);
+        Optional<ProductResponseDto> result = productService.findProductById(id);
 
         assertThat(result).isPresent();
         assertThat(result.get()).isEqualTo(dto1);
@@ -165,7 +166,7 @@ class ProductServiceTest {
 
         when(productRepository.findById(id)).thenReturn(Optional.empty());
 
-        Optional<ProductDto> result = productService.findProductById(id);
+        Optional<ProductResponseDto> result = productService.findProductById(id);
 
         assertThat(result).isEmpty();
 

@@ -7,7 +7,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CategoryMapperTest {
 
@@ -29,8 +28,8 @@ class CategoryMapperTest {
         CategoryDto dto = categoryMapper.toDto(c1);
 
         assertThat(dto).isNotNull();
-        assertThat(dto.getId()).isEqualTo(c1.getId());
-        assertThat(dto.getName()).isEqualTo(c1.getName());
+        assertThat(dto.id()).isEqualTo(c1.getId());
+        assertThat(dto.name()).isEqualTo(c1.getName());
     }
 
     @Test

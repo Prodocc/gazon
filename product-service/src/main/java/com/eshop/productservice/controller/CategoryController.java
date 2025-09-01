@@ -1,14 +1,9 @@
 package com.eshop.productservice.controller;
 
 import com.eshop.productservice.dto.CategoryDto;
-import com.eshop.productservice.dto.ProductDto;
-import com.eshop.productservice.mappers.CategoryMapper;
-import com.eshop.productservice.mappers.ProductMapper;
-import com.eshop.productservice.model.Category;
-import com.eshop.productservice.model.Product;
+import com.eshop.productservice.dto.ProductResponseDto;
 import com.eshop.productservice.service.CategoryService;
 import com.eshop.productservice.service.ProductService;
-import org.apache.coyote.Response;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,10 +23,10 @@ public class CategoryController {
     }
 
     @GetMapping("/{categoryId}/products")
-    public ResponseEntity<Page<ProductDto>> getProductByCategory(@PathVariable long categoryId,
-                                                                 @RequestParam int page,
-                                                                 @RequestParam int size) {
-        Page<ProductDto> productsByCategory = productService.findProductsByCategory(categoryId, page, size);
+    public ResponseEntity<Page<ProductResponseDto>> getProductByCategory(@PathVariable long categoryId,
+                                                                         @RequestParam int page,
+                                                                         @RequestParam int size) {
+        Page<ProductResponseDto> productsByCategory = productService.findProductsByCategory(categoryId, page, size);
 
         return ResponseEntity.ok(productsByCategory);
     }

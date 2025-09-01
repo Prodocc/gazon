@@ -1,13 +1,5 @@
 package com.eshop.productservice.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+public record CategoryDto(long id, String name) {
 
-@Getter
-@AllArgsConstructor
-public class CategoryDto {
-
-    private final long id;
-    private final String name;
 }
