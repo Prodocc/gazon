@@ -1,9 +1,8 @@
 package com.eshop.productservice.mappers;
 
 import com.eshop.productservice.dto.ProductCheckDto;
-import com.eshop.productservice.dto.ProductDto;
+import com.eshop.productservice.dto.ProductResponseDto;
 import com.eshop.productservice.model.Product;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ProductMapperTest {
 
@@ -32,13 +30,13 @@ class ProductMapperTest {
         p1.setPrice(BigDecimal.valueOf(100));
         p1.setQuantity(10);
 
-        ProductDto dto = productMapper.toDto(p1);
+        ProductResponseDto dto = productMapper.toResponseDto(p1);
 
         assertThat(dto).isNotNull();
-        assertThat(dto.getName()).isEqualTo(p1.getName());
-        assertThat(dto.getDescription()).isEqualTo(p1.getDescription());
-        assertThat(dto.getPrice().compareTo(p1.getPrice())).isEqualTo(0);
-        assertThat(dto.getQuantity()).isEqualTo(p1.getQuantity());
+        assertThat(dto.name()).isEqualTo(p1.getName());
+        assertThat(dto.description()).isEqualTo(p1.getDescription());
+        assertThat(dto.price().compareTo(p1.getPrice())).isEqualTo(0);
+        assertThat(dto.quantity()).isEqualTo(p1.getQuantity());
     }
 
     @Test
@@ -46,7 +44,7 @@ class ProductMapperTest {
     public void shouldMapNullProductToProductDto() {
         Product p1 = null;
 
-        ProductDto dto = productMapper.toDto(p1);
+        ProductResponseDto dto = productMapper.toResponseDto(p1);
 
         assertThat(dto).isNull();
     }

@@ -1,16 +1,13 @@
 package com.eshop.productservice.controller;
 
-import com.eshop.productservice.dto.ProductDto;
-import com.eshop.productservice.mappers.ProductMapper;
-import com.eshop.productservice.model.Product;
+import com.eshop.productservice.dto.ProductRequestDto;
+import com.eshop.productservice.dto.ProductResponseDto;
 import com.eshop.productservice.service.ProductService;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.function.Function;
+import java.net.URI;
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -22,17 +19,19 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<Product> createProduct(@RequestBody ProductDto request) {
-        Product created = productService.createProduct(request);
-        return ResponseEntity.ok(created);
+    public ResponseEntity<ProductResponseDto> createProduct(@RequestBody ProductRequestDto request) {
+        ProductResponseDto created = productService.createProduct(request);
+
+        URI location = URI.create(String.format("api/v1/products/%d", created.id()));
+        return ResponseEntity.created(location).body(created);
     }
 
     @GetMapping
-    public ResponseEntity<Page<ProductDto>> getProductsPaginated(
+    public ResponseEntity<Page<ProductResponseDto>> getProductsPaginated(
             @RequestParam int page,
             @RequestParam int size) {
 
-        Page<ProductDto> productsPaginated = productService.findProductsPaginated(page, size);
+        Page<ProductResponseDto> productsPaginated = productService.findProductsPaginated(page, size);
 
         return ResponseEntity.ok(productsPaginated);
 
